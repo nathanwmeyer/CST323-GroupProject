@@ -11,14 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Controller
 public class transactionController {
-    @GetMapping("/")
-    public String accessHome(Model model)
-    {
-        model.addAttribute("title", "Home");
-        
-        return "index";
-    }
 
     @GetMapping("/table/secret/doAddElement")
     public String createElement(Model model)
