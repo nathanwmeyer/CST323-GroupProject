@@ -1,5 +1,6 @@
 package com.gcu.site.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -7,6 +8,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.function.EntityResponse;
 
 import com.gcu.site.data.entity.ElementEntity;
 import com.gcu.site.data.repository.ElementRepository;
@@ -28,8 +30,19 @@ public class ElementDataService implements DataAccessInterface<ElementEntity>{
 
     @Override
     public List<ElementEntity> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        List<ElementEntity> element = new ArrayList<ElementEntity>();
+
+        try
+        {
+            Iterable<ElementEntity> elementIterable = elementRepository.findAll();
+
+            elementIterable.forEach(element::add);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return element;
     }
 
     @Override
@@ -40,8 +53,16 @@ public class ElementDataService implements DataAccessInterface<ElementEntity>{
 
     @Override
     public boolean create(ElementEntity t) {
-        // TODO Auto-generated method stub
-        return false;
+        String sql = "INSERT INTO ENTITIES(ELEMENT_NAME, ATOMIC_NUM, FORM, DESCRIPTION, RADIOACTIVE, PRICE) VALUES(?, ?, ?, ?, ?, ?)";
+        try
+        {
+            jdbcTemplateObject.update(sql, t.getElementName(), t.getAtomicNum(), t.getForm(), t.getDescription(), t.getRadioactive(), t.getPrice());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     @Override

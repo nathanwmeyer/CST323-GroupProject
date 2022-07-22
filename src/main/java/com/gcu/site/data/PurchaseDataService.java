@@ -1,5 +1,6 @@
 package com.gcu.site.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -28,8 +29,19 @@ public class PurchaseDataService implements DataAccessInterface<PurchaseEntity>{
 
     @Override
     public List<PurchaseEntity> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        List<PurchaseEntity> purchase = new ArrayList<PurchaseEntity>();
+
+        try
+        {
+            Iterable<PurchaseEntity> purchaseIterable = purchaseRepository.findAll();
+
+            purchaseIterable.forEach(purchase::add);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return purchase;
     }
 
     @Override
@@ -40,8 +52,16 @@ public class PurchaseDataService implements DataAccessInterface<PurchaseEntity>{
 
     @Override
     public boolean create(PurchaseEntity t) {
-        // TODO Auto-generated method stub
-        return false;
+        String sql = "INSERT INTO PURCHASES(PURCHASER, ITEM_ID, ITEM_NAME, QUANTITY, TOTAL_COST) VALUES(?, ?, ?, ?, ?)";
+        try
+        {
+            jdbcTemplateObject.update(sql, t.getPurchaser(), t.getItemID(), t.getItemName(), t.getQuantity(), t.getTotalCost());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     @Override
