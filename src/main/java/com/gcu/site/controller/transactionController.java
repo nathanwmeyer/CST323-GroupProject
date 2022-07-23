@@ -11,8 +11,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gcu.site.business.ElementBusinessInterface;
+import com.gcu.site.business.PurchaseBusinessInterface;
+
 @Controller
 public class transactionController {
+
+    @Autowired 
+    ElementBusinessInterface elementService;
+
+    @Autowired
+    PurchaseBusinessInterface purchaseService;
 
     @GetMapping("/table/secret/doAddElement")
     public String createElement(Model model)
