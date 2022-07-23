@@ -11,8 +11,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gcu.site.business.ElementBusinessInterface;
+import com.gcu.site.business.PurchaseBusinessInterface;
+
 @Controller
 public class navigationController {
+    @Autowired 
+    ElementBusinessInterface elementService;
+
+    @Autowired
+    PurchaseBusinessInterface purchaseService;
+
     @GetMapping("/")
     public String accessHome(Model model)
     {
@@ -25,6 +34,7 @@ public class navigationController {
     public String accessTable(Model model)
     {
         model.addAttribute("title", "Home");
+        model.addAttribute("elements", elementService.getElement());
         return "table";
     }
 
@@ -32,6 +42,7 @@ public class navigationController {
     public String createElement(Model model)
     {
         model.addAttribute("title", "Home");
+        model.addAttribute("elements", elementService.getElement());
         return "addNewElement";
     }
 
@@ -40,5 +51,13 @@ public class navigationController {
     {
         model.addAttribute("title", "Home");
         return "about";
+    }
+    
+    @GetMapping("/purchase")
+    public String purchase(Model model)
+    {
+        model.addAttribute("title", "Home");
+        model.addAttribute("purchases", purchaseService.getPurchase());
+        return "purchase";
     }
 }
