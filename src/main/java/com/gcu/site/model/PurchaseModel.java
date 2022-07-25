@@ -8,15 +8,15 @@ import org.springframework.data.annotation.Id;
 public class PurchaseModel {
     private Long ID;
     private String purchaser;
-    private String itemID;
+    private Long itemID;
     private String itemName;
-    private String quantity;
+    private Long quantity;
     private Double totalCost;
 
     public PurchaseModel() {
     }
 
-    public PurchaseModel(Long iD, String purchaser, String itemID, String itemName, String quantity, Double totalCost) {
+    public PurchaseModel(Long iD, String purchaser, Long itemID, String itemName, Long quantity, Double totalCost) {
         ID = iD;
         this.purchaser = purchaser;
         this.itemID = itemID;
@@ -41,11 +41,11 @@ public class PurchaseModel {
         this.purchaser = purchaser;
     }
 
-    public String getItemID() {
+    public Long getItemID() {
         return itemID;
     }
 
-    public void setItemID(String itemID) {
+    public void setItemID(Long itemID) {
         this.itemID = itemID;
     }
 
@@ -57,11 +57,11 @@ public class PurchaseModel {
         this.itemName = itemName;
     }
 
-    public String getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 

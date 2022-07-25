@@ -15,13 +15,13 @@ public class PurchaseEntity {
     private String purchaser;
 
     @Column("ITEM_ID")
-    private String itemID;
+    private Long itemID;
 
     @Column("ITEM_NAME")
     private String itemName;
 
     @Column("QUANTITY")
-    private String quantity;
+    private Long quantity;
 
     @Column("TOTAL_COST")
     private Double totalCost;
@@ -29,7 +29,7 @@ public class PurchaseEntity {
     public PurchaseEntity() {
     }
 
-    public PurchaseEntity(Long iD, String purchaser, String itemID, String itemName, String quantity, Double totalCost) {
+    public PurchaseEntity(Long iD, String purchaser, Long itemID, String itemName, Long quantity, Double totalCost) {
         ID = iD;
         this.purchaser = purchaser;
         this.itemID = itemID;
@@ -54,11 +54,11 @@ public class PurchaseEntity {
         this.purchaser = purchaser;
     }
 
-    public String getItemID() {
+    public Long getItemID() {
         return itemID;
     }
 
-    public void setItemID(String itemID) {
+    public void setItemID(Long itemID) {
         this.itemID = itemID;
     }
 
@@ -70,11 +70,11 @@ public class PurchaseEntity {
         this.itemName = itemName;
     }
 
-    public String getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 

@@ -24,7 +24,7 @@ public class ElementEntity {
     private String description;
     
     @Column("RADIOACTIVE")
-    private Boolean radioactive;
+    private String radioactive;
     
     @Column("PRICE")
     private Double price;
@@ -33,7 +33,7 @@ public class ElementEntity {
     public ElementEntity() {
     }
     public ElementEntity(Long iD, String elementName, int atomicNum, String form, String description,
-            Boolean radioactive, Double price) {
+    String radioactive, Double price) {
         ID = iD;
         this.elementName = elementName;
         this.atomicNum = atomicNum;
@@ -72,10 +72,10 @@ public class ElementEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-    public Boolean getRadioactive() {
+    public String getRadioactive() {
         return radioactive;
     }
-    public void setRadioactive(Boolean radioactive) {
+    public void setRadioactive(String radioactive) {
         this.radioactive = radioactive;
     }
     public Double getPrice() {

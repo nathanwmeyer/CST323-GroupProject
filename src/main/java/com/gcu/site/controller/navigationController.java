@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gcu.site.business.ElementBusinessInterface;
 import com.gcu.site.business.PurchaseBusinessInterface;
+import com.gcu.site.model.ElementModel;
+import com.gcu.site.model.PurchaseModel;
 
 @Controller
 public class navigationController {
@@ -43,6 +45,7 @@ public class navigationController {
     {
         model.addAttribute("title", "Home");
         model.addAttribute("elements", elementService.getElement());
+        model.addAttribute("elementModel", new ElementModel());
         return "addNewElement";
     }
 
@@ -58,6 +61,8 @@ public class navigationController {
     {
         model.addAttribute("title", "Home");
         model.addAttribute("purchases", purchaseService.getPurchase());
+        model.addAttribute("elements", elementService.getElement());
+        model.addAttribute("purchaseModel", new PurchaseModel());
         return "purchase";
     }
 }

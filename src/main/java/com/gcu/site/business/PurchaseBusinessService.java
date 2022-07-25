@@ -6,8 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gcu.site.data.ElementDataService;
 import com.gcu.site.data.PurchaseDataService;
+import com.gcu.site.data.entity.ElementEntity;
 import com.gcu.site.data.entity.PurchaseEntity;
+import com.gcu.site.model.ElementModel;
 import com.gcu.site.model.PurchaseModel;
 
 @Service
@@ -15,6 +18,9 @@ public class PurchaseBusinessService implements PurchaseBusinessInterface{
 
     @Autowired
     private PurchaseDataService service;
+
+    @Autowired
+    private ElementDataService elementService;
 
     @Override
     public List<PurchaseModel> getPurchase() {
@@ -33,7 +39,11 @@ public class PurchaseBusinessService implements PurchaseBusinessInterface{
 
     @Override
     public boolean addPurchase(PurchaseModel purchaseModel) {
-        PurchaseEntity entity = new PurchaseEntity(null, purchaseModel.getPurchaser(), purchaseModel.getItemID(), purchaseModel.getItemName(), purchaseModel.getQuantity(), purchaseModel.getTotalCost());
+        ElementEntity elementModel = elementService.findById(Math.toIntExact(purchaseModel.getItemID()));
+        double price = elementModel.getPrice();
+        double cost = price * purchaseModel.getQuantity();
+
+        PurchaseEntity entity = new PurchaseEntity(null, purchaseModel.getPurchaser(), purchaseModel.getItemID(), elementModel.getElementName(), purchaseModel.getQuantity(), cost);
         return service.create(entity);
     }
 

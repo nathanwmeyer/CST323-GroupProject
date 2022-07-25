@@ -6,12 +6,12 @@ public class ElementModel {
     private int atomicNum;
     private String form;
     private String description;
-    private Boolean radioactive;
+    private String radioactive;
     private Double price;
     public ElementModel() {
     }
     public ElementModel(Long iD, String elementName, int atomicNum, String form, String description,
-            Boolean radioactive, Double price) {
+    String radioactive, Double price) {
         ID = iD;
         this.elementName = elementName;
         this.atomicNum = atomicNum;
@@ -50,10 +50,10 @@ public class ElementModel {
     public void setDescription(String description) {
         this.description = description;
     }
-    public Boolean getRadioactive() {
+    public String getRadioactive() {
         return radioactive;
     }
-    public void setRadioactive(Boolean radioactive) {
+    public void setRadioactive(String radioactive) {
         this.radioactive = radioactive;
     }
     public Double getPrice() {

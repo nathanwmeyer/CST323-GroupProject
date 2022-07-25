@@ -47,13 +47,12 @@ public class ElementDataService implements DataAccessInterface<ElementEntity>{
 
     @Override
     public ElementEntity findById(int id) {
-        // TODO Auto-generated method stub
-        return null;
+        return elementRepository.getElementByID(id);
     }
 
     @Override
     public boolean create(ElementEntity t) {
-        String sql = "INSERT INTO ENTITIES(ELEMENT_NAME, ATOMIC_NUM, FORM, DESCRIPTION, RADIOACTIVE, PRICE) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ELEMENTS(ELEMENT_NAME, ATOMIC_NUM, FORM, DESCRIPTION, RADIOACTIVE, PRICE) VALUES(?, ?, ?, ?, ?, ?)";
         try
         {
             jdbcTemplateObject.update(sql, t.getElementName(), t.getAtomicNum(), t.getForm(), t.getDescription(), t.getRadioactive(), t.getPrice());
