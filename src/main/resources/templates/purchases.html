@@ -21,9 +21,9 @@
 		  <div class="navbar-nav">
 			<a class="nav-item nav-link" href="/">Home</a>
 			<a class="nav-item nav-link" href="/about">About</a>
-			<a class="nav-item nav-link active" href="/table">Table</a>
+			<a class="nav-item nav-link" href="/table">Table</a>
 			<a class="nav-item nav-link" href="/table/secret/addElement">New Element</a>
-			<a class="nav-item nav-link" href="/purchase">Purchase</a>
+			<a class="nav-item nav-link active" href="/purchase">Purchase</a>
 			<a class="nav-item nav-link" href="/purchase/secret/purchases">Purchases</a>
 		  </div>
 		</div>
@@ -31,7 +31,7 @@
 </head>
 <body>
 	<h1>Please use the navbar to access other parts of the website</h1>
-    <h2>This is the periodic table page</h2>
+    <h2>This is the purchase page</h2>
 	<div class="container border border-info rounded p-s5 my-5" style="max-width: 1000px;">
         <h3 style="text-align:center">List of Purchases</h3>
           <table class="table">
@@ -39,53 +39,47 @@
               <tr>
                 <th style="text-align:center" data-field="ID" scope="col">
                       <span class="text-success">
-                        Element ID
+                        Purchase ID
                       </span>
                 </th>
-                <th style="text-align:center" data-field="elementName" scope="col">
+                <th style="text-align:center" data-field="purchaser" scope="col">
                       <span class="text-success">
-                        Element Name 
+                        Purchaser Name 
                       </span>
                 </th>
-                <th style="text-align:center" data-field="atomicNum" scope="col">
+                <th style="text-align:center" data-field="itemID" scope="col">
                       <span class="text-success">
-                        Atomic Number
+                        Item ID
                       </span>
                 </th>
-                <th style="text-align:center" data-field="form" scope="col">
+                <th style="text-align:center" data-field="itemName" scope="col">
                     <span class="text-success">
-                        Form
+                        Item Name
                     </span>
                 </th>
-                <th style="text-align:center" data-field="description" scope="col">
+                <th style="text-align:center" data-field="quantity" scope="col">
                     <span class="text-success">
-                        Description
+                        Quantity
                     </span>
                 </th>
-                <th style="text-align:center" data-field="radioactive" scope="col">
+                <th style="text-align:center" data-field="totalCost" scope="col">
                     <span class="text-success">
-                        Radioactive?
-                    </span>
-                </th>
-				<th style="text-align:center" data-field="price" scope="col">
-                    <span class="text-success">
-                        Price
+                        Total Cost
                     </span>
                 </th>
               </tr>
             </thead>
             <tbody>
-                <tr th:if="${elements.empty}">
-                    <td style="text-align:center" colspan="4"> No Elements Available </td>
+                <tr th:if="${purchases.empty}">
+                    <td style="text-align:center" colspan="4"> No Products Available </td>
                 </tr>
-                <tr th:each="element : ${elements}">
-                    <td style="text-align:center"><h5 th:text="${element.ID}">--</h5></td>
-                    <td style="text-align:center"><h5 th:text="${element.elementName}">--</h5></td>
-                    <td style="text-align:center"><h5 th:text="${element.atomicNum}">--</h5></td>
-                    <td style="text-align:center"><h5 th:text="${element.form}">--</h5></td>
-                    <td style="text-align:center"><h5 th:text="${element.description}">--</h5></td>
-                    <td style="text-align:center"><h5 th:text="${element.radioactive}">--</h5></td>
-					<td style="text-align:center"><h5 th:text="${element.price}">--</h5></td>
+                <tr th:each="purchase : ${purchases}">
+                    <td style="text-align:center"><h5 th:text="${purchase.ID}">--</h5></td>
+                    <td style="text-align:center"><h5 th:text="${purchase.purchaser}">--</h5></td>
+                    <td style="text-align:center"><h5 th:text="${purchase.itemID}">--</h5></td>
+                    <td style="text-align:center"><h5 th:text="${purchase.itemName}">--</h5></td>
+                    <td style="text-align:center"><h5 th:text="${purchase.quantity}">--</h5></td>
+                    <td style="text-align:center"><h5 th:text="${purchase.totalCost}">--</h5></td>
                 </tr>
             </tbody>
           </table>

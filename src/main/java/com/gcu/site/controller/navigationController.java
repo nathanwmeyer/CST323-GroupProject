@@ -65,4 +65,14 @@ public class navigationController {
         model.addAttribute("purchaseModel", new PurchaseModel());
         return "purchase";
     }
+
+    @GetMapping("/purchase/secret/purchases")
+    public String purchases(Model model)
+    {
+        model.addAttribute("title", "Purchases");
+        
+        model.addAttribute("purchases", purchaseService.getPurchase());
+
+        return "purchases";
+    }
 }
