@@ -31,7 +31,7 @@ public class transactionController {
     {
 
         elementService.addElement(elementModel);
-        return "table";
+        return "addNewElement";
     }
 
     @PostMapping("/doAddPurchase")
