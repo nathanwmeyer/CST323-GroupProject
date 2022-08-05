@@ -2,7 +2,6 @@ package com.gcu.site.business;
 
 import java.util.List;
 
-import com.gcu.site.model.ElementModel;
 import com.gcu.site.model.PurchaseModel;
 
 public interface PurchaseBusinessInterface {

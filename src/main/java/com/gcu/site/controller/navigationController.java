@@ -1,15 +1,12 @@
 package com.gcu.site.controller;
 
-import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.gcu.site.business.ElementBusinessInterface;
 import com.gcu.site.business.PurchaseBusinessInterface;
@@ -18,6 +15,9 @@ import com.gcu.site.model.PurchaseModel;
 
 @Controller
 public class navigationController {
+    
+    Logger logger = LogManager.getLogger(navigationController.class);
+
     @Autowired 
     ElementBusinessInterface elementService;
 
@@ -27,52 +27,65 @@ public class navigationController {
     @GetMapping("/")
     public String accessHome(Model model)
     {
+        logger.info("entering accessHome method");
         model.addAttribute("title", "Home");
         
+        logger.info("exiting accessHome method");
         return "index";
     }
 
     @GetMapping("/table")
     public String accessTable(Model model)
     {
+        logger.info("entering accessTable method");
         model.addAttribute("title", "Home");
         model.addAttribute("elements", elementService.getElement());
+        logger.info("exiting accessTable method");
         return "table";
     }
 
     @GetMapping("/table/secret/addElement")
     public String createElement(Model model)
     {
+        logger.info("entering addElement method");
         model.addAttribute("title", "Home");
         model.addAttribute("elements", elementService.getElement());
         model.addAttribute("elementModel", new ElementModel());
+        logger.info("exiting addElement method");
         return "addNewElement";
     }
 
     @GetMapping("/about")
     public String accessAbout(Model model)
     {
+        logger.info("entering accessAbout method");
         model.addAttribute("title", "Home");
+        logger.info("entering accessAbout method");
         return "about";
     }
     
     @GetMapping("/purchase")
     public String purchase(Model model)
     {
+        logger.info("entering purchase method");
         model.addAttribute("title", "Home");
         model.addAttribute("purchases", purchaseService.getPurchase());
         model.addAttribute("elements", elementService.getElement());
         model.addAttribute("purchaseModel", new PurchaseModel());
+
+        logger.info("exiting purchase method");
         return "purchase";
     }
 
     @GetMapping("/purchase/secret/purchases")
     public String purchases(Model model)
     {
+        logger.info("entering purchases method");
         model.addAttribute("title", "Purchases");
         
         model.addAttribute("purchases", purchaseService.getPurchase());
 
+        logger.info("exiting purchases method");
         return "purchases";
     }
 }

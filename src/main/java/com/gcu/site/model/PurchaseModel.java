@@ -1,9 +1,5 @@
 package com.gcu.site.model;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import org.springframework.data.annotation.Id;
 
 public class PurchaseModel {
     private Long ID;
