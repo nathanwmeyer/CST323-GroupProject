@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gcu</groupId>
-	<artifactId>gcu-323-group</artifactId>
+	<artifactId>java-app</artifactId>
 	<name>site</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
