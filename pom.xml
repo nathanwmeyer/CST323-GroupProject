@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.gcu</groupId>
 	<artifactId>java-app</artifactId>
-	<packaging>war</packaging>
 	<name>site</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
