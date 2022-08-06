@@ -47,7 +47,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'gcu-323-group'
+          app-name: 'java-app'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A0CC464E089F4CEC9EBC256CC91AD36C }}
           package: '*.jar'
