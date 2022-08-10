@@ -12,6 +12,9 @@ import com.gcu.site.data.ElementDataService;
 import com.gcu.site.data.entity.ElementEntity;
 import com.gcu.site.model.ElementModel;
 
+/* ElementBusinessService:
+ * This class manages the retrieval and addition of elements in the application's database.
+ */
 @Service
 public class ElementBusinessService implements ElementBusinessInterface{
     
@@ -20,6 +23,10 @@ public class ElementBusinessService implements ElementBusinessInterface{
     @Autowired
     private ElementDataService service;
 
+    /*  getElement(): retrieves all elements from the database using ElementDataService
+     * 
+     *  returns a List of type ElementModel
+    */
     @Override
     public List<ElementModel> getElement() {
         logger.info("entering getElement method");
@@ -37,6 +44,10 @@ public class ElementBusinessService implements ElementBusinessInterface{
         return elementDomain;
     }
 
+
+    /* addElement: 
+     * adds a new element of type ElementModel to the database using ElementDataService
+     */
     @Override
     public boolean addElement(ElementModel elementModel) {
         logger.info("entering addElement method");
@@ -48,6 +59,11 @@ public class ElementBusinessService implements ElementBusinessInterface{
         return service.create(entity);
     }
 
+    /* getElementById: 
+     * retrieves a specific element from the database using ElementDataService by using the element's ID value
+     * 
+     * returns the element as an ElementModel
+     */
     @Override
     public ElementModel getElementById(int id) {
         logger.info("entering getElementById method");
@@ -60,6 +76,9 @@ public class ElementBusinessService implements ElementBusinessInterface{
         return new ElementModel(entity.getID(), entity.getElementName(), entity.getAtomicNum(), entity.getForm(), entity.getDescription(), entity.getRadioactive(), entity.getPrice());
     }
 
+    /* deleteElement:
+     * deletes a specific element from the database using ElementDataService
+     */
     @Override
     public boolean deleteElement(ElementModel elementModel) {
         logger.info("entering deleteElement method");
@@ -72,6 +91,9 @@ public class ElementBusinessService implements ElementBusinessInterface{
         return service.delete(entity);
     }
 
+    /* updateElement:
+     * updates a specific element from the database using ElementDataService
+     */
     @Override
     public boolean updateElement(ElementModel elementModel) {
         logger.info("entering updateElement method");

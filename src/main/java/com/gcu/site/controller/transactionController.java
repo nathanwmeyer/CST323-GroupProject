@@ -15,6 +15,9 @@ import com.gcu.site.business.PurchaseBusinessInterface;
 import com.gcu.site.model.ElementModel;
 import com.gcu.site.model.PurchaseModel;
 
+/* navigationController:
+ * This class manages actions in the application that involve adding new elements or purchases to the application's database
+ */
 @Controller
 public class transactionController {
 
@@ -26,6 +29,11 @@ public class transactionController {
     @Autowired
     PurchaseBusinessInterface purchaseService;
 
+    /* createElement:
+     * takes information from the form in the addElement page and adds it to the database using ElementBusinessService
+     * 
+     * if the form is incomplete or there are errors in the form, it returns to the index page instead without adding an element to the database
+     */
     @PostMapping("/table/secret/doAddElement")
     public String createElement(@Valid ElementModel elementModel, BindingResult bindingResult, Model model)
     {
@@ -41,6 +49,11 @@ public class transactionController {
         return "addNewElement";
     }
 
+    /* doPurchase:
+     * takes information from the form in the purchase page and adds it to the database using PurchaseBusinessService
+     * 
+     * if the form is incomplete or there are errors in the form, it returns to the index page instead without adding a purchase to the database
+     */
     @PostMapping("/doAddPurchase")
     public String doPurchase(@Valid PurchaseModel purchaseModel, BindingResult bindingResult,Model model)
     {

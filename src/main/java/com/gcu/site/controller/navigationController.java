@@ -13,6 +13,9 @@ import com.gcu.site.business.PurchaseBusinessInterface;
 import com.gcu.site.model.ElementModel;
 import com.gcu.site.model.PurchaseModel;
 
+/* navigationController:
+ * This class manages navigation around the application, it does not handle actions in the application that involve adding new elements or purchases
+ */
 @Controller
 public class navigationController {
     
@@ -24,6 +27,9 @@ public class navigationController {
     @Autowired
     PurchaseBusinessInterface purchaseService;
 
+    /* accessHome:
+     * access the index page, the home page of the application
+     */
     @GetMapping("/")
     public String accessHome(Model model)
     {
@@ -34,6 +40,10 @@ public class navigationController {
         return "index";
     }
 
+    /* accessTable:
+     * access the table page, this page uses ElementBusinessService to retrieve a list of all elements in the database
+     * which it then displays in a table
+     */
     @GetMapping("/table")
     public String accessTable(Model model)
     {
@@ -44,6 +54,9 @@ public class navigationController {
         return "table";
     }
 
+    /* createElement:
+     * access the addElement page, which allows administrators to add new elements to the database by filling out a form
+     */
     @GetMapping("/table/secret/addElement")
     public String createElement(Model model)
     {
@@ -55,6 +68,10 @@ public class navigationController {
         return "addNewElement";
     }
 
+    /* accessAbout:
+     * access the about page, which provides information about the application developers, as well as the technology and frameworks used for
+     * designing and running the application
+     */
     @GetMapping("/about")
     public String accessAbout(Model model)
     {
@@ -64,6 +81,9 @@ public class navigationController {
         return "about";
     }
     
+    /* purchase:
+     * access the purchase page, which allows users to purchase items in the business' inventory using a form
+     */
     @GetMapping("/purchase")
     public String purchase(Model model)
     {
@@ -77,6 +97,10 @@ public class navigationController {
         return "purchase";
     }
 
+    /* purchases:
+     * access the purchases page, this table uses PurchaseBusinessService to retrieve a list of all purchases in the database
+     * which it then displays in a table
+     */
     @GetMapping("/purchase/secret/purchases")
     public String purchases(Model model)
     {

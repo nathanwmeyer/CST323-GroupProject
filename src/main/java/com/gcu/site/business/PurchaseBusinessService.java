@@ -14,6 +14,9 @@ import com.gcu.site.data.entity.ElementEntity;
 import com.gcu.site.data.entity.PurchaseEntity;
 import com.gcu.site.model.PurchaseModel;
 
+/* PurchaseBusinessService:
+ * This class manages the retrieval and addition of purchases in the application's database.
+ */
 @Service
 public class PurchaseBusinessService implements PurchaseBusinessInterface{
     
@@ -25,6 +28,10 @@ public class PurchaseBusinessService implements PurchaseBusinessInterface{
     @Autowired
     private ElementDataService elementService;
 
+    /*  getPurchase(): retrieves all elements from the database using PurchaseDataService
+     * 
+     *  returns a List of type PurchaseModel
+    */
     @Override
     public List<PurchaseModel> getPurchase() {
 
@@ -43,6 +50,11 @@ public class PurchaseBusinessService implements PurchaseBusinessInterface{
         return purchaseDomain;
     }
 
+    /* addPurchase: 
+     * adds a new purchase of type PurchaseModel to the database using PurchaseDataService
+     * 
+     * uses ElementDataService to retrieve Element price and name for the purchase
+     */
     @Override
     public boolean addPurchase(PurchaseModel purchaseModel) {
         logger.info("entering addPurchase method");
@@ -61,6 +73,11 @@ public class PurchaseBusinessService implements PurchaseBusinessInterface{
         return service.create(entity);
     }
 
+    /* getPurchaseById: 
+     * retrieves a specific purchase from the database using PurchaseDataService by using the purchase's ID value
+     * 
+     * returns the element as an PurchaseModel
+     */
     @Override
     public PurchaseModel getPurchaseById(int id) {
         logger.info("entering getPurchaseById method");
@@ -72,6 +89,9 @@ public class PurchaseBusinessService implements PurchaseBusinessInterface{
         return new PurchaseModel(entity.getID(), entity.getPurchaser(), entity.getItemID(), entity.getItemName(), entity.getQuantity(), entity.getTotalCost());
     }
 
+    /* deletePurchase:
+     * deletes a specific purchase from the database using PurchaseDataService
+     */
     @Override
     public boolean deletePurchase(PurchaseModel purchaseModel) {
         logger.info("entering deletePurchase method");
@@ -84,6 +104,9 @@ public class PurchaseBusinessService implements PurchaseBusinessInterface{
         return service.delete(entity);
     }
 
+    /* updatePurchase:
+     * updates a specific purchase from the database using PurchaseDataService
+     */
     @Override
     public boolean updatePurchase(PurchaseModel purchaseModel) {
         logger.info("entering updatePurchase method");
