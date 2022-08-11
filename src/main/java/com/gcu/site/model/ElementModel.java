@@ -10,6 +10,7 @@ public class ElementModel {
     private Double price;
     public ElementModel() {
     }
+    //Elemement method
     public ElementModel(Long iD, String elementName, int atomicNum, String form, String description,
     String radioactive, Double price) {
         ID = iD;
@@ -20,6 +21,7 @@ public class ElementModel {
         this.radioactive = radioactive;
         this.price = price;
     }
+    //setters and getters
     public Long getID() {
         return ID;
     }

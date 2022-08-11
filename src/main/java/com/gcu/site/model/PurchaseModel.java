@@ -8,7 +8,7 @@ public class PurchaseModel {
     private String itemName;
     private Long quantity;
     private Double totalCost;
-
+    //purchase model method
     public PurchaseModel() {
     }
 
@@ -20,7 +20,7 @@ public class PurchaseModel {
         this.quantity = quantity;
         this.totalCost = totalCost;
     }
-
+    //setters and getters
     public Long getID() {
         return ID;
     }
