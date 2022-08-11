@@ -31,7 +31,7 @@ public class PurchaseDataService implements DataAccessInterface<PurchaseEntity>{
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
-
+    //findall method
     @Override
     public List<PurchaseEntity> findAll() {
         logger.info("entering findAll method");
@@ -52,7 +52,7 @@ public class PurchaseDataService implements DataAccessInterface<PurchaseEntity>{
         logger.info("exiting findAll method");
         return purchase;
     }
-
+    //findbyid method
     @Override
     public PurchaseEntity findById(int id) {
         logger.warn("this method (findById) is unimplemented and should not appear during use, if this warning has appeared something has gone wrong");
