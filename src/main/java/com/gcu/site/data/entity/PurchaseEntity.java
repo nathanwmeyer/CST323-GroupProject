@@ -6,7 +6,8 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Table("PURCHASES")
 public class PurchaseEntity {
-
+ 
+    //Orders/purchases properties
     @Id
     @Column("ID")
     private Long ID;
@@ -29,6 +30,7 @@ public class PurchaseEntity {
     public PurchaseEntity() {
     }
 
+    //Orders/purchases declarations/getters and setters
     public PurchaseEntity(Long iD, String purchaser, Long itemID, String itemName, Long quantity, Double totalCost) {
         ID = iD;
         this.purchaser = purchaser;

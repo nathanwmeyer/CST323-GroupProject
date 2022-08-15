@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.gcu.site.data.entity.ElementEntity;
 import com.gcu.site.data.repository.ElementRepository;
 
+
 @Service
 public class ElementDataService implements DataAccessInterface<ElementEntity>{
 
@@ -32,6 +33,7 @@ public class ElementDataService implements DataAccessInterface<ElementEntity>{
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
+    //FIND ALL element database tool
     @Override
     public List<ElementEntity> findAll() {
         logger.info("entering findAll method");
@@ -53,6 +55,7 @@ public class ElementDataService implements DataAccessInterface<ElementEntity>{
         return element;
     }
 
+    //FIND BY ID element databse tool
     @Override
     public ElementEntity findById(int id) {
         logger.info("entering findById method");
@@ -60,6 +63,7 @@ public class ElementDataService implements DataAccessInterface<ElementEntity>{
         return elementRepository.getElementByID(id);
     }
 
+    //Insert into database element method
     @Override
     public boolean create(ElementEntity t) {
         logger.info("entering create method");
@@ -78,6 +82,7 @@ public class ElementDataService implements DataAccessInterface<ElementEntity>{
         return true;
     }
 
+    //UPDATE database tool for element
     @Override
     public boolean update(ElementEntity t) {
         logger.warn("this method (update) is unimplemented and should not appear during use, if this warning has appeared something has gone wrong");
@@ -85,6 +90,7 @@ public class ElementDataService implements DataAccessInterface<ElementEntity>{
         return false;
     }
 
+    //Delete element from database
     @Override
     public boolean delete(ElementEntity t) {
         logger.warn("this method (delete) is unimplemented and should not appear during use, if this warning has appeared something has gone wrong");

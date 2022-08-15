@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.gcu.site.data.entity.ElementEntity;
 
+//interface
 public interface ElementRepository extends CrudRepository<ElementEntity, Long> {
     ElementEntity getElementByID(int ID);
 }

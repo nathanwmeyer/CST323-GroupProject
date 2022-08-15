@@ -31,7 +31,8 @@ public class PurchaseDataService implements DataAccessInterface<PurchaseEntity>{
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
-    //findall method
+
+    //findall method for database purchaces
     @Override
     public List<PurchaseEntity> findAll() {
         logger.info("entering findAll method");
@@ -52,7 +53,8 @@ public class PurchaseDataService implements DataAccessInterface<PurchaseEntity>{
         logger.info("exiting findAll method");
         return purchase;
     }
-    //findbyid method
+
+    //findbyid method tool for database purchases
     @Override
     public PurchaseEntity findById(int id) {
         logger.warn("this method (findById) is unimplemented and should not appear during use, if this warning has appeared something has gone wrong");
@@ -60,6 +62,7 @@ public class PurchaseDataService implements DataAccessInterface<PurchaseEntity>{
         return null;
     }
 
+    //Create tool for database of purchases
     @Override
     public boolean create(PurchaseEntity t) {
         String sql = "INSERT INTO PURCHASES(PURCHASER, ITEM_ID, ITEM_NAME, QUANTITY, TOTAL_COST) VALUES(?, ?, ?, ?, ?)";
@@ -74,6 +77,7 @@ public class PurchaseDataService implements DataAccessInterface<PurchaseEntity>{
         return true;
     }
 
+    //Update tool for database of purchases
     @Override
     public boolean update(PurchaseEntity t) {
         logger.warn("this method (update) is unimplemented and should not appear during use, if this warning has appeared something has gone wrong");
@@ -81,6 +85,7 @@ public class PurchaseDataService implements DataAccessInterface<PurchaseEntity>{
         return false;
     }
 
+    //Delete tool for database of purchases
     @Override
     public boolean delete(PurchaseEntity t) {
         logger.warn("this method (delete) is unimplemented and should not appear during use, if this warning has appeared something has gone wrong");

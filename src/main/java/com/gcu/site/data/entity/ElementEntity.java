@@ -7,6 +7,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("ELEMENTS")
 public class ElementEntity {
 
+    //Table/element properties
     @Id
     @Column("ID")
     private Long ID;
@@ -29,7 +30,7 @@ public class ElementEntity {
     @Column("PRICE")
     private Double price;
 
-
+    //Element declarations / getters and setters
     public ElementEntity() {
     }
     public ElementEntity(Long iD, String elementName, int atomicNum, String form, String description,
