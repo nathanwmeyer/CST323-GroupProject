@@ -1,0 +1,7 @@
+com.gcu.site
+com.gcu.site.business
+com.gcu.site.controller
+com.gcu.site.data
+com.gcu.site.data.entity
+com.gcu.site.data.repository
+com.gcu.site.model

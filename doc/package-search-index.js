@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.gcu.site"},{"l":"com.gcu.site.business"},{"l":"com.gcu.site.controller"},{"l":"com.gcu.site.data"},{"l":"com.gcu.site.data.entity"},{"l":"com.gcu.site.data.repository"},{"l":"com.gcu.site.model"}];updateSearchResults();
